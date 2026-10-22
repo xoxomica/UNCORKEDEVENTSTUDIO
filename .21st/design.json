@@ -1,0 +1,19 @@
+{
+  "project": "Uncorked Event Studio",
+  "stack": "PHP 8.2, HTML, inline CSS and vanilla JavaScript in index.php",
+  "tokens": {
+    "paper": "#f5f0e7",
+    "ink": "#302720",
+    "wine": "#682b3d",
+    "muted": "#74665f",
+    "serif": "DM Serif Display",
+    "sans": "DM Sans"
+  },
+  "decisions": [
+    "Preserve the user's selected ivory and wine design, pop-up bar hero, sideways One team section and two Moments we've poured strips.",
+    "Use EnduroSat Space Service as a motion reference: scrolling moves images and copy inside a stationary scene.",
+    "Add a three-chapter desktop hero journey with camera push, opposing image wipes and scrubbed copy. Retain native scrolling, chapter buttons and a skip link.",
+    "Keep two pinned sequences total. Compact viewports and reduced motion use the original readable layout. Pause motion removes the cinematic pinning.",
+    "Use existing genuine Uncorked imagery and project tokens. Do not import aerospace imagery or reference-site branding."
+  ]
+}

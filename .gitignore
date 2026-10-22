@@ -1,0 +1,21 @@
+# Runtime records, sessions, local source backups and research downloads.
+/storage/*
+!/storage/.htaccess
+!/storage/.gitkeep
+*.sqlite*
+*.bak
+*.log
+__pycache__/
+
+# Local credentials and deployment state.
+.env
+.env.*
+!.env.example
+/.vercel/
+/node_modules/
+
+# Generated artifacts and machine files.
+/dist/
+/build/
+.DS_Store
+Thumbs.db

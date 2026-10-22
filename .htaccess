@@ -1,0 +1,7 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^$ public/ [L]
+RewriteRule ^(?:app|database|storage|tests|docs)(?:/|$) - [F,L]
+<FilesMatch "^(?:README\.md|\.env.*|.*\.sqlite.*|.*\.sql)$">
+Require all denied
+</FilesMatch>

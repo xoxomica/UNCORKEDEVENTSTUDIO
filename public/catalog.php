@@ -1,0 +1,8 @@
+<?php
+// Included inside the landing page; data is entered by authorized management.
+if(!function_exists('run')){http_response_code(404);exit;}
+$packages=run('SELECT * FROM packages WHERE active=1 ORDER BY price')->fetchAll();
+$settings=run('SELECT key,value FROM settings')->fetchAll(PDO::FETCH_KEY_PAIR);
+?>
+<?php if($packages): ?><section class="section" id="packages"><div class="section-head reveal"><div><p class="eyebrow">CURATED FOR YOUR OCCASION</p><h2>Pick your kind<br>of <em>celebration.</em></h2></div><p>Packages from the Uncorked team.<br>Final arrangements follow confirmation.</p></div><div class="cards"><?php foreach($packages as $p): ?><article class="occasion panel" style="border:1px solid var(--line);padding:28px"><p class="eyebrow">EVENT PACKAGE</p><h3><?= esc($p['name']) ?></h3><h3><?= money($p['price']) ?></h3><p><?= nl2br(esc($p['inclusions'])) ?></p><a class="text-link" href="#reserve" data-package="<?= $p['id'] ?>">Request this package ↗</a></article><?php endforeach; ?></div></section><?php endif; ?>
+<?php if(array_filter($settings)): ?><section class="section" id="visit" style="background:#eae3d8"><p class="eyebrow">COME FIND YOUR GOOD TIME</p><h2>See you at <em>Uncorked.</em></h2><div class="cards"><div><h3>Find us</h3><p><?= nl2br(esc($settings['address']??'Contact our team for venue details.')) ?></p><p><?= esc($settings['hours']??'') ?></p></div><div><h3>Get in touch</h3><p><?= esc($settings['phone']??'') ?><br><?= esc($settings['email']??'') ?></p><?php if(!empty($settings['facebook'])): ?><a href="<?= esc($settings['facebook']) ?>" rel="noopener noreferrer" target="_blank">Visit our Facebook ↗</a><?php endif; ?></div><div><p><?= nl2br(esc($settings['about']??'')) ?></p></div></div></section><?php endif; ?>
